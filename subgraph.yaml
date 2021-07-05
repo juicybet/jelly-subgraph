@@ -1,0 +1,45 @@
+specVersion: 0.0.2
+description: Juicy.bet Jelly bets
+repository: https://gitlab.com/juicybet/jelly-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Jelly
+    network: chapel
+    source:
+      address: "0x3a58A6C5C495fbcddBbC273bA121286e00E54db7"
+      abi: Jelly
+      startBlock: 10340500
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - BetAccepted
+        - BetCancelled
+        - BetConcluded
+        - BetCreated
+        - OwnershipTransferred
+        - Transfer
+      abis:
+        - name: Jelly
+          file: ../contracts/artifacts/contracts/Jelly.sol/Jelly.json
+        - name: WhirlpoolConsumer
+          file: ../contracts/artifacts/contracts/WhirlpoolConsumer.sol/WhirlpoolConsumer.json
+        - name: Whirlpool
+          file: ../contracts/artifacts/contracts/Whirlpool.sol/Whirlpool.json
+        - name: IWhirlpoolConsumer
+          file: ../contracts/artifacts/contracts/interfaces/IWhirlpoolConsumer.sol/IWhirlpoolConsumer.json
+        - name: IWhirlpool
+          file: ../contracts/artifacts/contracts/interfaces/IWhirlpool.sol/IWhirlpool.json
+      eventHandlers:
+        - event: BetCreated(uint64,address,uint8,uint256)
+          handler: handleBetCreated
+        - event: BetCancelled(uint64)
+          handler: handleBetCancelled
+        - event: BetAccepted(uint64,address)
+          handler: handleBetAccepted
+        - event: BetConcluded(uint64,address,uint8)
+          handler: handleBetConcluded
+      file: ./src/mapping.ts
