@@ -1,24 +1,26 @@
+type Transaction @entity {
+  id: ID!
+  block: BigInt!
+  timestamp: BigInt!
+}
+
 type JellyBet @entity {
   id: ID!
-
-  createdTx: Bytes!
-  createdOn: BigInt!
   creator: Bytes!
   bet: Int!
   value: BigInt!
 
-  cancelled: Boolean!
-  cancelledTx: Bytes
-  cancelledOn: BigInt
-
-  accepted: Boolean!
-  acceptedTx: Bytes
-  acceptedOn: BigInt
   joiner: Bytes
-
-  concluded: Boolean!
-  concludedTx: Bytes
-  concludedOn: BigInt
   referrer: Bytes
   result: Int
+
+  feeDeducted: BigInt
+  referralBonus: BigInt
+  rewardReceived: BigInt
+  refundReceived: BigInt
+
+  createdTx: Transaction!
+  acceptedTx: Transaction
+  cancelledTx: Transaction
+  concludedTx: Transaction
 }
