@@ -34,7 +34,7 @@ export function handleBetCancelled(event: BetCancelled): void {
 
   jellyBet.cancelledTx = createTx(event)
 
-  let feeDeducted = jellyBet.value.times(BigInt.fromI32(jelly.cancelFee())).div(tenK)
+  let feeDeducted = jellyBet.value.times(BigInt.fromI32(jelly.cancellationFee())).div(tenK)
 
   jellyBet.feeDeducted = feeDeducted
   jellyBet.refundReceived = jellyBet.value.minus(feeDeducted)

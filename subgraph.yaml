@@ -8,9 +8,9 @@ dataSources:
     name: Jelly
     network: chapel
     source:
-      address: "0x3a58A6C5C495fbcddBbC273bA121286e00E54db7"
+      address: '0x0eb86C60CCC2D47EC78A28ddfa92D4E1e16E00c5'
       abi: Jelly
-      startBlock: 10340500
+      startBlock: 10364117
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
