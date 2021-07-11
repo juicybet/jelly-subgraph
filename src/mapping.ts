@@ -1,6 +1,5 @@
-import { BetAccepted, BetCancelled, BetConcluded, BetCreated } from '../generated/Jelly/Jelly'
+import { BetAccepted, BetCancelled, BetConcluded, BetCreated, Jelly } from '../generated/Jelly/Jelly'
 import { JellyBet, Transaction } from '../generated/schema'
-import { Jelly } from '../generated/Jelly/Jelly'
 import { Address, BigInt, ethereum } from '@graphprotocol/graph-ts'
 
 let tenK = BigInt.fromI32(10000)

@@ -20,8 +20,6 @@ dataSources:
         - BetCancelled
         - BetConcluded
         - BetCreated
-        - OwnershipTransferred
-        - Transfer
       abis:
         - name: Jelly
           file: ../contracts/artifacts/contracts/Jelly.sol/Jelly.json
